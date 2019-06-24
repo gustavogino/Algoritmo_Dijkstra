@@ -1,8 +1,4 @@
 from collections import defaultdict
-import networkx as nx
-import numpy as np
-import matplotlib.pyplot as plt
-import pylab
 
 class Grafo():
     def __init__(self):
@@ -48,13 +44,7 @@ def Dijsktra(grafo, inicial, final):
         
     caminho = caminho[::-1]
     return caminho
-
-def Combinador(vetor):
-	combinacoes = []
-	gera_comb = product(vetor, repeat=2)
-	for combina in gera_comb:
-	    combinacoes.append(combina)	    
-	return combinacoes    
+ 
 
 
 grafo = Grafo()
@@ -84,28 +74,6 @@ arestas = [
 for aresta in arestas:
     grafo.adiciona_aresta(*aresta)
 
-arestas_existentes=[
-['V1', 'V2'],
-['V1', 'V4'],
-['V1', 'V5'],
-['V2', 'V3'],
-['V2', 'V6'],
-['V2', 'V5'],
-['V2', 'V4'],
-['V3', 'V6'],
-['V4', 'V5'],
-['V4', 'V7'],
-['V4', 'V8'],
-['V5', 'V7'],
-['V5', 'V8'],
-['V6', 'V8'],
-['V6', 'V9'],
-['V7', 'V8'],
-['V7', 'V10'],
-['V8', 'V9'],
-['V8', 'V10']
-]
-
 combinacoes=[
 ['V1', 'V2'],['V1', 'V3'],['V1', 'V4'],['V1', 'V5'],['V1', 'V6'],['V1', 'V7'],['V1', 'V8'],['V1', 'V9'],['V1', 'V10'],
 ['V2', 'V3'],['V2', 'V4'],['V2', 'V5'],['V2', 'V6'],['V2', 'V7'],['V2', 'V8'],['V2', 'V9'],['V2', 'V10'],
@@ -125,15 +93,4 @@ for i in range(len(combinacoes)):
 	todos_caminhos.append(caminho)
 	print("Caminho de "+combinacoes[i][0]+" para "+combinacoes[i][1]+" : ")
 	print(caminho)
-	print("   ")
 
-#todos_caminhos = set(tuple(x) for x in todos_caminhos)
-
-#plotar grafo
-"""
-G = nx.Graph(arestas_existentes)
-nx.set_node_attributes(G,'capacity',1)
-
-nx.draw(G)
-plt.show()
-"""
